@@ -20,7 +20,7 @@ Portal: https://my.contabo.com
 | **rustdesk** | 209.126.10.250 | 200367739 | US-central | Ubuntu | VPS S SSD | RustDesk relay/ID server |
 | **websites** | 154.53.49.85 | 200688966 | US-east | Ubuntu | VPS M SSD | NEW websites server (formatted 3/2/2025) |
 | **vpn-virginia** | 89.117.53.109 | 201580619 | EU | Ubuntu | VPS S SSD | PiVPN Virginia (OpenVPN) |
-| **vmi2540775** | 209.126.86.123 | 202540775 | US-central | — | VPS 4 Cores Storage | _(unassigned / unknown role)_ |
+| **xari-dev** | 209.126.86.123 | 202540775 | US-central | Ubuntu 22.04 | VPS 4 Cores Storage (588GB) | XAF dev server — ShopController, MySivarGptApp, Primus |
 | **openclaw-xari** | 31.220.79.196 | 203105444 | EU | Ubuntu | Cloud VPS 50 SSD | OpenClaw agent |
 
 ---
@@ -237,6 +237,41 @@ pivpn -qr
 **Credentials → Bitwarden (Contabo Xari):**
 - Administrator password
 - VNC password
+
+---
+
+### xari-dev — 209.126.86.123
+
+**Role:** XAF development server. US-central. Ubuntu 22.04. 588GB storage disk.
+
+- **SSH:** `ssh root@209.126.86.123`
+- **Webmin:** https://209.126.86.123:10000/
+- **Usermin:** https://209.126.86.123:20000/
+- **RDP (xrdp):** port 3389
+
+**Stack:**
+| Service | Port | Description |
+|---|---|---|
+| Apache2 | 80/443 | Web server |
+| MariaDB 10.6 | 3306 (local) | Database |
+| PHP 8.1-FPM | — | PHP runtime |
+| Postfix | 25/465/587 | Mail (SMTP) |
+| Dovecot | 110/143/993/995 | Mail (IMAP/POP3) |
+| BIND DNS | 53 | DNS server |
+| ProFTPD | 21 | FTP |
+| XRDP | 3389 | Remote Desktop |
+| Webmin | 10000 | Server admin panel |
+| Usermin | 20000 | User panel |
+
+**Projects (in `/home/`):**
+| Directory | Project | Notes |
+|---|---|---|
+| `/home/ShopController/ShopControllerApp-development/` | ShopControllerApp | XAF .NET 8 + DevExpress v23.2 — Blazor + WebAPI (dev build) |
+| `/home/joche/MySivarGptApp/` | MySivarGptApp | GPT app project |
+| `/home/primus/Superior/` | Primus/Superior | Primus project |
+
+**Credentials → Bitwarden (Contabo Xari → Server - xari-dev):**
+- Root SSH password
 
 ---
 
