@@ -29,9 +29,6 @@ Portal: https://my.contabo.com
 
 | Name | IP | Provider | OS | Role |
 |---|---|---|---|---|
-| **vpn-spain** | 172.233.107.191 | Linode | Ubuntu | PiVPN Spain (WireGuard) |
-| **outline-miami** | 172.233.185.249 | Linode | Ubuntu | Outline proxy (Miami) |
-| **shadowsocks-nj** | 172.234.230.211 | Linode | Ubuntu | ShadowSocks proxy (New Jersey) |
 | **windows-old** | 5.189.173.9 | Contabo | Windows Server 2016 | Old Windows server |
 | **vmi154** | 154.12.245.107 | Contabo | Ubuntu | Cloud VPS 20 SSD — Seattle (unassigned) |
 
@@ -223,55 +220,6 @@ pivpn add nopass
 # QR code
 pivpn -qr
 ```
-
-**Credentials → Bitwarden (Contabo Xari):**
-- Root SSH password
-
----
-
-### vpn-spain — 172.233.107.191
-
-**Role:** PiVPN Spain — WireGuard server. Linode.
-
-- **SSH:** `ssh root@172.233.107.191`
-
-**WireGuard client setup (macOS):**
-```bash
-brew install wireguard-go wireguard-tools bash
-mkdir -p /usr/local/etc/wireguard/
-sudo cp JocheMacAir.conf /usr/local/etc/wireguard/
-wg-quick up JocheMacbookAir   # connect
-wg-quick down JocheMacbookAir # disconnect
-# Profiles stored at: /usr/local/etc/wireguard/
-```
-
-**Commands:**
-```bash
-pivpn add
-pivpn -qr
-```
-
-**Credentials → Bitwarden (Contabo Xari):**
-- Root SSH password
-
----
-
-### outline-miami — 172.233.185.249
-
-**Role:** Outline proxy server. Miami. Linode.
-
-- **SSH:** `ssh root@172.233.185.249`
-
-**Credentials → Bitwarden (Contabo Xari):**
-- Root SSH password
-
----
-
-### shadowsocks-nj — 172.234.230.211
-
-**Role:** ShadowSocks proxy server. New Jersey. Linode.
-
-- **SSH:** `ssh root@172.234.230.211`
 
 **Credentials → Bitwarden (Contabo Xari):**
 - Root SSH password
